@@ -1,4 +1,7 @@
 #!/usr/bin/env python
+import sys
+reload(sys)
+sys.setdefaultencoding("utf-8")
 
 import tornado.web
 import tornado.httpserver
@@ -10,9 +13,9 @@ from config import *
 
 
 # init login and get the distribution list
-itchat.auto_login(hotReload=True, picDir='/usr/share/nginx/html/QR.png')
+itchat.auto_login(picDir='/usr/share/nginx/html/QR.png')
 
-with open('recipients.conf') as f:
+with open('recipients.conf', 'rb') as f:
     for line in f:
         if line.startswith('users='):
             user_list = line[line.find('=')+1:].strip('\r\n').split(',')
