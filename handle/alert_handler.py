@@ -21,8 +21,8 @@ class AlertHandler(tornado.web.RequestHandler):
 
     def send_alert_to_wechat(self, message):
         for group in wechat_group_list:
-            itchat.send('[Zabbix Alert]: %s - %s' % message, toUserName=group[u'UserName'])
+            itchat.send('[Zabbix Alert]: %s' % message, toUserName=group[u'UserName'])
         for user in wechat_user_list:
-            itchat.send('[Zabbix Alert]: %s - %s' % message, toUserName=user[u'UserName'])
+            itchat.send('[Zabbix Alert]: %s' % message, toUserName=user[u'UserName'])
 
 
