@@ -11,6 +11,8 @@ class AlertHandler(tornado.web.RequestHandler):
     def get(self):
         message = self.get_argument('message', '')
         type = self.get_argument('type', '')
+        if message == '':
+            return
         try:
             self.send_alert_to_wechat(type, message)
             self.write('%s: Send to Wechat group successfully!' % datetime.datetime.strftime(datetime.datetime.now(), '%Y-%m-%d %H:%M:%S'))
