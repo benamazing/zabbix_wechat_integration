@@ -40,10 +40,6 @@ for user in wechat_user_list:
     userId = user[u'UserName']
     itchat.send(u'Hello, alert sender is running!', toUserName=userId)
 
-for user in wechat_group_list:
-    userId = user[u'UserName']
-    itchat.send(u'Hello, alert sender is running!', toUserName=userId)
-
 define("listen_port", default=8082, help="run on the given port", type=int)
 
 if __name__ == '__main__':
